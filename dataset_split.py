@@ -27,12 +27,22 @@ df['Happy_faces'] = prefix_hf + df['Happy_faces'].astype(str)
 df['Negative_places'] = prefix_np + df['Negative_places'].astype(str)
 df['Positive_places'] = prefix_pp + df['Positive_places'].astype(str)
 
+full_df=pd.DataFrame()
+
 for n in range(1,26):
     temp_split=df.sample(16,random_state=400)
     df=df.drop(temp_split.index)
     temp_split_flat=pd.concat([temp_split[col] for col in temp_split])
     temp_split_flat=temp_split_flat.sample(frac=1) #the subset list is now flat, next we need to save into a new df
-    subset=pd.DataFrame(temp_split_flat,columns=['image_url'])
-    subset['faces'] = subset['image_url'].str.contains('faces')*1 #search the url column for 'faces' and place a 1 in a new column when there is a face
+    temp_list=[]
+    for i in range(1,97): #going to have to label all images in a different column
+        temp_list.append(('image_url_'+str(i)))
+    subset=pd.DataFrame(temp_split_flat) #save to new DF
+    subset=subset.T #transpose the arrays
+    subset.columns=temp_list #reset column names
+    #subset['faces'] = subset['image_url'].str.contains('faces')*1 #search the url column for 'faces' and place a 1 in a new column when there is a face
     subset.to_csv(("item_list_"+str(n)+".csv"),index=False)
-    del temp_split, temp_split_flat, subset
+    full_df=full_df.append(subset,ignore_index=True)
+    del temp_split, temp_split_flat, subset,temp_list
+
+full_df.to_csv("full_HIT_list.csv",index=False)
