@@ -14,18 +14,22 @@ chdir('/Users/zb3663/Documents/GitHub/stimuli_toberated/')
 df=pd.read_csv("filenames.csv")
 
 prefix_hi='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_household_items/'
-prefix_fv='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_fruits_vegetables/'
-prefix_af='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_angry_faces/'
-prefix_hf='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_happy_faces/'
+prefix_p='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_produce/'
+prefix_nf='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_negative_faces/'
+prefix_pf='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_positive_faces/'
 prefix_np='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_negative_places/'
 prefix_pp='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_positive_places/'
+prefix_pa='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_positive_animals/'
+prefix_na='https://raw.githubusercontent.com/zacharybretton/stimuli_toberated/main/resized_negative_animals/'
 
-df['Household_items'] = prefix_hi +df['Household_items'].astype(str)
-df['Fruits_vegetables'] = prefix_fv + df['Fruits_vegetables'].astype(str)
-df['Angry_faces'] = prefix_af + df['Angry_faces'].astype(str)
-df['Happy_faces'] = prefix_hf + df['Happy_faces'].astype(str)
-df['Negative_places'] = prefix_np + df['Negative_places'].astype(str)
-df['Positive_places'] = prefix_pp + df['Positive_places'].astype(str)
+df['household_items'] = prefix_hi +df['household_items'].astype(str)
+df['produce'] = prefix_p + df['produce'].astype(str)
+df['positive_faces'] = prefix_pf + df['positive_faces'].astype(str)
+df['negative_faces'] = prefix_nf + df['negative_faces'].astype(str)
+df['negative_places'] = prefix_np + df['negative_places'].astype(str)
+df['positive_places'] = prefix_pp + df['positive_places'].astype(str)
+df['positive_animals'] = prefix_pa + df['positive_animals'].astype(str)
+df['negative_animals'] = prefix_na + df['negative_animals'].astype(str)
 
 full_df=pd.DataFrame()
 
