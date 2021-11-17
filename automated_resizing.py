@@ -16,7 +16,7 @@ def make_square(im, min_size=400, fill_color=(0, 0, 0, 0)):
     new_im.paste(im, (int((size - x) / 2), int((size - y) / 2)))
     return new_im
 
-image_dir='/Users/zb3663/Desktop/clearvale_stimuli_set/stimuli_clearvale' #root image directory 
+image_dir='/Users/zb3663/Desktop/clearvale_stimuli_set/stimuli_clearval_V2' #root image directory 
 
 sub_folders = [name for name in listdir(image_dir) if isdir(join(image_dir, name))]
 
