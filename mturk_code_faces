@@ -1,8 +1,6 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
-<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
-      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
 
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects">
@@ -23,7 +21,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -52,7 +50,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -68,7 +66,7 @@
 <crowd-form answer-format="flatten-objects">
 
     <classification-target>
-        <img  src="${image_url_2}">
+        <img  src="${image_url_2}"> 
     </classification-target>
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -83,7 +81,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -112,7 +110,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -143,7 +141,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -172,7 +170,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -203,7 +201,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -232,7 +230,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -263,7 +261,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -292,7 +290,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -323,7 +321,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -352,7 +350,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -383,7 +381,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -412,7 +410,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -443,7 +441,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -472,7 +470,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -503,7 +501,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -532,7 +530,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -563,7 +561,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -592,7 +590,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -623,7 +621,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -652,7 +650,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -683,7 +681,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -712,7 +710,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -743,7 +741,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -772,7 +770,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -803,7 +801,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -832,7 +830,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -863,7 +861,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -892,7 +890,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -923,7 +921,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -952,7 +950,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -983,7 +981,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1012,7 +1010,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1043,7 +1041,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1072,7 +1070,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1103,7 +1101,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1132,7 +1130,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1163,7 +1161,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1192,7 +1190,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1223,7 +1221,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1252,7 +1250,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1283,7 +1281,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1312,7 +1310,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1343,7 +1341,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1372,7 +1370,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
@@ -1403,7 +1401,7 @@
     </crowd-radio-group>
     
     <h2>Question</h2>
-    <p>How does this item make you feel?</p>
+    <p>Confronted with this image, are you feeling...?</p>
     <crowd-radio-group name="Arousal">
     <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
     <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
@@ -1432,487 +1430,7 @@
               any HTML here. -->
         <short-instructions>
             <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_25}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_26}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_27}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_28}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_29}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_30}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_31}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
-        </short-instructions>
-
-        <!-- Use the full-instructions section for more detailed instructions that the 
-              Worker can open while working on the task. Including more detailed 
-              instructions and additional examples of good and bad answers here can
-              help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
-            <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
-            <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-        </full-instructions>
-
-</crowd-form>
-<crowd-form answer-format="flatten-objects">
-
-    <classification-target>
-        <img  src="${image_url_32}">
-    </classification-target>
-    <h2>Question</h2>
-    <p>How positive or negative do you find this item?</p>
-    <crowd-radio-group name="Valence">
-    <crowd-radio-button name="Valence_1" value="Extremely negative">1) Extremely negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_2" value="Negative">2) Negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_3" value="Somewhat negative">3) Somewhat negative</crowd-radio-button>
-    <crowd-radio-button name="Valence_4" value="Neutral">4) Neither negative nor positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_5" value="Somewhat positive">5) Somewhat positive</crowd-radio-button>
-    <crowd-radio-button name="Valence_6" value="Positive">6) Positive </crowd-radio-button>
-    <crowd-radio-button name="Valence_7" value="Extremely positive">7) Extremely positive</crowd-radio-button>
-    </crowd-radio-group>
-    
-    <h2>Question</h2>
-    <p>How does this item make you feel?</p>
-    <crowd-radio-group name="Arousal">
-    <crowd-radio-button name="Arousal_1" value="Very relaxed/calm">1) Very relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_2" value="Relaxed or calm">2) Relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_3" value="Somewhat relaxed or calm">3) Somewhat relaxed/calm</crowd-radio-button>
-    <crowd-radio-button name="Arousal_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Arousal_5" value="Somewhat excited or aroused">5) Somewhat excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_6" value="Excited or aroused">6) Excited/aroused</crowd-radio-button>
-    <crowd-radio-button name="Arousal_7" value="Very excited or aroused">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how typical is this item?</p>
-    <crowd-radio-group name="Typical">
-    <crowd-radio-button name="Typical_1" value="Very atypical/unusual">1) Very atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_2" value="Atypical/unusual">2) Atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_3" value="Somewhat atypical/unusual">3) Somewhat atypical/unusual</crowd-radio-button>
-    <crowd-radio-button name="Typical_4" value="Neutral">4) Neutral</crowd-radio-button>
-    <crowd-radio-button name="Typical_5" value="Somewhat typical/usual">5) Somewhat typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_6" value="Typical/usual">6) Typical/usual</crowd-radio-button>
-    <crowd-radio-button name="Typical_7" value="Very typical/usual">7) Very typical/usual</crowd-radio-button>
-    </crowd-radio-group>     
-    </crowd-image-classifier>
-       <!-- Use the short-instructions section for quick instructions that the Worker
-              will see while working on the task. Including some basic examples of 
-              good and bad answers here can help get good results. You can include 
-              any HTML here. -->
-        <short-instructions>
-            <p>Please select a rating for each question.</p>
-            <p>You will be rating around 32 faces.</p>
+            <p>You will be rating around 24 faces.</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the 
