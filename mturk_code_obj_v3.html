@@ -1,10 +1,60 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 
-
+<!-- How and when divs/images/textboxes are displayed -->
+<style>
+    /*Consent Form*/
+    .consentDIV{
+        width:75%;
+        margin: 0 auto;
+        background-color: beige;
+        border: 2px solid gray;
+        font-size:14pt;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    #consentError{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 24pt;
+    }
+    #MTcodeResult{
+        display:none;
+    }
+</style>
 
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
+
+
 <crowd-form answer-format="flatten-objects">
+    <div id='consentError'>
+    <strong>The code you typed in is incorrect, please type in the correct consent code given</strong>
+    </div>
+    
+    <div class="consentDIV">
+    Prior to beginning this study, <strong>please complete an online consent form </strong><br>
+    by clicking on the following link. The link will open in a new tab.<br>
+    <br>
+    After submitting the form, you will be provided with a code. Please<br>
+    return to this tab and insert the code here to continue the study.<br>
+    <br>
+    <a id="link" href="http://www.google.com" target="_blank">
+        Consent Form.
+    </a>
+    <br>
+    <br>
+    Code:<input id="MTcode" name="MTcode">
+    <br>
+    <br>
+    <button type="button" id="consentButton" class="button">I have completed the consent form</button>
+    <br>
+    <textarea rows="1" cols="1" id="MTcodeResult" name="MTcodeResult"></textarea>
+    </div>
 
     <classification-target>
         <img  src="${image_url_1}">
@@ -3046,10 +3096,10 @@
             <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
             <p>You will need to provide an answer to each question before you can submit, so please read everything carefully.</p>
         </full-instructions>
-        
-
 </crowd-form>
+
 <script type='text/javascript'>
+
 function validateForm() {
     var valid = true;
     var radioGroups = document.querySelectorAll("crowd-radio-group");
@@ -3064,12 +3114,47 @@ function validateForm() {
     return valid;
 }
 
+function validateConsent() {
+    var inputCode = document.getElementById("MTcode").value;
+    var valid_consent = false;
+    if (document.getElementById("MTcodeResult").value=='pass') {
+        valid_consent=true;
+    }
+    else{
+        valid_consent = false;
+    }
+    return valid_consent;
+}
+
+$('#consentButton').click(consentClicked);
+
 window.onload = function() {
+    $("#completion").hide();
+    $("#consentError").hide();
     document.querySelector('crowd-form').onsubmit = function(e) {
         if (!validateForm()) {
             alert("Please answer all the questions in order to submit. Make sure to check each answer");
             e.preventDefault();
+        } else if (!validateConsent()){
+            alert("Please make sure that you entered the consent code properly and pressed submit. If your code works the consent window should go away");
+            e.preventDefault();
+        } else{
+            alert("You have completed this study. After reading the following debreifing form, please click the 'okay' button to submit your responses. Researcher contact info - Zachary Bretton: zbretton@utexas.edu. If you'd like to hear more about the study, please do not hesitate to contact us at the email above. Thanks for your participation!")
         }
+
+    }
+}
+
+function consentClicked(){
+    var inputCode = document.getElementById("MTcode").value;
+    if (inputCode == 'a7ui_i90') {
+        document.getElementById("MTcodeResult").value = "pass"
+        $(".consentDIV").hide();
+        $("#consentError").hide();
+    }
+    else{
+        document.getElementById("MTcodeResult").value = "fail"
+        $("#consentError").show();
     }
 }
 </script>
