@@ -1,9 +1,10 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- These scripts are to help the query code run -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 
-<!-- How and when divs/images/textboxes are displayed -->
+<!-- How divs/textboxes are displayed -->
 <style>
     /*Consent Form*/
     .consentDIV{
@@ -17,6 +18,7 @@
         margin-right: auto;
         text-align: center;
     }
+    /*Conset Error window*/
     #consentError{
         text-align: center;
         margin-right: auto;
@@ -24,6 +26,7 @@
         font-size: 20pt;
         margin: 1 auto;
     }
+    /*Hidden box where the "pass" or "fail" for consent is stored*/
     #MTcodeResult{
         display:none;
     }
@@ -56,7 +59,9 @@
     <br>
     <textarea rows="1" cols="1" id="MTcodeResult" name="MTcodeResult"></textarea>
     </div>
-
+    <br>
+    <hr>
+    <br>
     <classification-target>
         <img  src="${image_url_1}">
     </classification-target>
@@ -3095,7 +3100,7 @@
         <full-instructions header="Instructions">
             <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
             <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-            <p>You will need to provide an answer to each question before you can submit, and complete the consent form, so please read everything carefully.</p>
+            <p>You will need to provide an answer to each question and complete the consent form before you can submit, so please read everything carefully.</p>
         </full-instructions>
 </crowd-form>
 

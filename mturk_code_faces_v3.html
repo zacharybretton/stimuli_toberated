@@ -1,11 +1,67 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- These scripts are to help the query code run -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+<!-- How divs/textboxes are displayed -->
+<style>
+    /*Consent Form*/
+    .consentDIV{
+        width:75%;
+        margin: 0 auto;
+        background-color: beige;
+        border: 2px solid gray;
+        font-size:14pt;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    /*Conset Error window*/
+    #consentError{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 20pt;
+        margin: 1 auto;
+    }
+    /*Hidden box where the "pass" or "fail" for consent is stored*/
+    #MTcodeResult{
+        display:none;
+    }
+</style>
 
 
 
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects">
-
+    <div id='consentError'>
+    <strong>The code you typed in is incorrect, please type in the correct consent code given</strong>
+    </div>
+    
+    <div class="consentDIV">
+    Prior to beginning this study, <strong>please complete an online consent form </strong><br>
+    by clicking on the following link. The link will open in a new tab.<br>
+    <br>
+    After submitting the form, you will be provided with a code. Please<br>
+    return to this tab and insert the code here to continue the study.<br>
+    <br>
+    <a id="link" href="http://www.google.com" target="_blank">
+        Consent Form.
+    </a>
+    <br>
+    <br>
+    Code:<input id="MTcode" name="MTcode">
+    <br>
+    <br>
+    <button type="button" id="consentButton" class="button">I have completed the consent form</button>
+    <br>
+    <textarea rows="1" cols="1" id="MTcodeResult" name="MTcodeResult"></textarea>
+    </div>
+    <br>
+    <hr>
+    <br>
     <classification-target>
         <img  src="${image_url_1}">
     </classification-target> 
@@ -32,6 +88,7 @@
         <crowd-radio-button name="Arousal_1_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_1_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
+    </crowd-image-classifier>
 
 <br><br><br>
     <classification-target>
@@ -61,6 +118,7 @@
         <crowd-radio-button name="Arousal_2_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_2_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
+    </crowd-image-classifier>
 
 <br><br><br>        
     <classification-target>
@@ -90,11 +148,10 @@
         <crowd-radio-button name="Arousal_3_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_3_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
+    </crowd-image-classifier>
     
 
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_4}">
     </classification-target>
@@ -122,11 +179,10 @@
         <crowd-radio-button name="Arousal_4_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_4_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
+    </crowd-image-classifier>
 
 
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_5}">
     </classification-target>
@@ -155,12 +211,10 @@
         <crowd-radio-button name="Arousal_5_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_5_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
+    </crowd-image-classifier>
 
 
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_6}">
     </classification-target>
@@ -190,12 +244,9 @@
         <crowd-radio-button name="Arousal_6_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_6_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
+    </crowd-image-classifier>    
  
-    
-<br><br><br>        
-    </crowd-image-classifier>  
-
+<br><br><br>          
     <classification-target>
         <img  src="${image_url_7}">
     </classification-target>
@@ -224,12 +275,9 @@
         <crowd-radio-button name="Arousal_7_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_7_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
+    </crowd-image-classifier>
     
-  
-
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_8}">
     </classification-target>
@@ -258,11 +306,9 @@
         <crowd-radio-button name="Arousal_8_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_8_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-       
+    </crowd-image-classifier>       
 
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_9}">
     </classification-target>
@@ -291,11 +337,10 @@
         <crowd-radio-button name="Arousal_9_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_9_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
+    </crowd-image-classifier>    
 
 
-<br><br><br>        
-    </crowd-image-classifier>  
+<br><br><br>  
 
     <classification-target>
         <img  src="${image_url_10}">
@@ -324,12 +369,10 @@
         <crowd-radio-button name="Arousal_10_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_10_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-  
-    
-<br><br><br>        
-    </crowd-image-classifier>  
+    </crowd-image-classifier>    
 
+
+<br><br><br>  
     <classification-target>
         <img  src="${image_url_11}">
     </classification-target>
@@ -357,39 +400,15 @@
         <crowd-radio-button name="Arousal_11_5" value="5">5) Somewhat excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_11_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_11_7" value="7">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _11">
-        <crowd-radio-button name=" _11_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _11_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _11_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _11_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _11_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _11_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _11_7" value="7">7) Very  /usual</crowd-radio-button>
     </crowd-radio-group>     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
-
     <classification-target>
         <img  src="${image_url_12}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _12">
-        <crowd-radio-button name=" _12_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _12_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
-    
+
+
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
         <crowd-radio-group name="Valence_12">
@@ -413,37 +432,15 @@
         <crowd-radio-button name="Arousal_12_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_12_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _12">
-        <crowd-radio-button name=" _12_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _12_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _12_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _12_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _12_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _12_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _12_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>  
     
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_13}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _13">
-        <crowd-radio-button name=" _13_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _13_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -468,37 +465,15 @@
         <crowd-radio-button name="Arousal_13_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_13_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _13">
-        <crowd-radio-button name=" _13_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _13_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _13_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _13_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _13_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _13_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _13_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>   
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_14}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _14">
-        <crowd-radio-button name=" _14_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _14_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -523,37 +498,15 @@
         <crowd-radio-button name="Arousal_14_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_14_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _14">
-        <crowd-radio-button name=" _14_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _14_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _14_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _14_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _14_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _14_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _14_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>          
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_15}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _15">
-        <crowd-radio-button name=" _15_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _15_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -578,37 +531,15 @@
         <crowd-radio-button name="Arousal_15_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_15_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _15">
-        <crowd-radio-button name=" _15_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _15_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _15_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _15_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _15_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _15_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _15_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_16}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _16">
-        <crowd-radio-button name=" _16_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _16_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -633,37 +564,15 @@
         <crowd-radio-button name="Arousal_16_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_16_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _16">
-        <crowd-radio-button name=" _16_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _16_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _16_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _16_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _16_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _16_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _16_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_17}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _17">
-        <crowd-radio-button name=" _17_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _17_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -688,37 +597,15 @@
         <crowd-radio-button name="Arousal_17_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_17_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _17">
-        <crowd-radio-button name=" _17_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _17_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _17_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _17_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _17_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _17_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _17_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_18}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _18">
-        <crowd-radio-button name=" _18_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _18_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -743,37 +630,16 @@
         <crowd-radio-button name="Arousal_18_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_18_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _18">
-        <crowd-radio-button name=" _18_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _18_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _18_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _18_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _18_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _18_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _18_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_19}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _19">
-        <crowd-radio-button name=" _19_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _19_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
+
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -798,37 +664,15 @@
         <crowd-radio-button name="Arousal_19_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_19_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _19">
-        <crowd-radio-button name=" _19_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _19_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _19_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _19_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _19_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _19_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _19_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_20}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _20">
-        <crowd-radio-button name=" _20_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _20_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -853,37 +697,15 @@
         <crowd-radio-button name="Arousal_20_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_20_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _20">
-        <crowd-radio-button name=" _20_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _20_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _20_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _20_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _20_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _20_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _20_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_21}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _21">
-        <crowd-radio-button name=" _21_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _21_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -908,37 +730,15 @@
         <crowd-radio-button name="Arousal_21_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_21_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _21">
-        <crowd-radio-button name=" _21_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _21_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _21_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _21_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _21_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _21_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _21_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_22}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _22">
-        <crowd-radio-button name=" _22_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _22_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -963,37 +763,15 @@
         <crowd-radio-button name="Arousal_22_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_22_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _22">
-        <crowd-radio-button name=" _22_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _22_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _22_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _22_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _22_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _22_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _22_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_23}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _23">
-        <crowd-radio-button name=" _23_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _23_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1018,37 +796,15 @@
         <crowd-radio-button name="Arousal_23_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_23_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _23">
-        <crowd-radio-button name=" _23_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _23_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _23_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _23_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _23_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _23_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _23_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_24}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _24">
-        <crowd-radio-button name=" _24_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _24_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1073,37 +829,15 @@
         <crowd-radio-button name="Arousal_24_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_24_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _24">
-        <crowd-radio-button name=" _24_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _24_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _24_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _24_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _24_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _24_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _24_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_25}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _25">
-        <crowd-radio-button name=" _25_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _25_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1128,37 +862,15 @@
         <crowd-radio-button name="Arousal_25_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_25_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _25">
-        <crowd-radio-button name=" _25_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _25_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _25_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _25_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _25_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _25_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _25_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_26}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _26">
-        <crowd-radio-button name=" _26_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _26_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1183,37 +895,15 @@
         <crowd-radio-button name="Arousal_26_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_26_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _26">
-        <crowd-radio-button name=" _26_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _26_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _26_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _26_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _26_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _26_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _26_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_27}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _27">
-        <crowd-radio-button name=" _27_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _27_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1238,37 +928,15 @@
         <crowd-radio-button name="Arousal_27_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_27_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _27">
-        <crowd-radio-button name=" _27_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _27_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _27_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _27_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _27_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _27_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _27_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+         
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_28}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _28">
-        <crowd-radio-button name=" _28_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _28_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1293,37 +961,15 @@
         <crowd-radio-button name="Arousal_28_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_28_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _28">
-        <crowd-radio-button name=" _28_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _28_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _28_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _28_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _28_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _28_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _28_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_29}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _29">
-        <crowd-radio-button name=" _29_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _29_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1348,37 +994,15 @@
         <crowd-radio-button name="Arousal_29_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_29_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _29">
-        <crowd-radio-button name=" _29_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _29_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _29_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _29_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _29_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _29_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _29_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_30}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _30">
-        <crowd-radio-button name=" _30_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _30_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1403,37 +1027,15 @@
         <crowd-radio-button name="Arousal_30_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_30_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _30">
-        <crowd-radio-button name=" _30_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _30_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _30_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _30_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _30_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _30_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _30_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_31}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _31">
-        <crowd-radio-button name=" _31_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _31_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1458,37 +1060,15 @@
         <crowd-radio-button name="Arousal_31_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_31_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _31">
-        <crowd-radio-button name=" _31_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _31_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _31_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _31_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _31_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _31_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _31_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_32}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _32">
-        <crowd-radio-button name=" _32_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _32_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1513,37 +1093,15 @@
         <crowd-radio-button name="Arousal_32_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_32_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _32">
-        <crowd-radio-button name=" _32_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _32_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _32_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _32_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _32_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _32_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _32_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_33}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _33">
-        <crowd-radio-button name=" _33_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _33_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1568,37 +1126,15 @@
         <crowd-radio-button name="Arousal_33_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_33_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _33">
-        <crowd-radio-button name=" _33_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _33_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _33_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _33_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _33_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _33_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _33_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_34}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _34">
-        <crowd-radio-button name=" _34_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _34_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1624,36 +1160,14 @@
         <crowd-radio-button name="Arousal_34_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
     
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _34">
-        <crowd-radio-button name=" _34_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _34_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _34_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _34_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _34_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _34_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _34_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_35}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _35">
-        <crowd-radio-button name=" _35_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _35_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1678,37 +1192,15 @@
         <crowd-radio-button name="Arousal_35_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_35_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _35">
-        <crowd-radio-button name=" _35_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _35_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _35_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _35_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _35_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _35_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _35_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_36}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _36">
-        <crowd-radio-button name=" _36_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _36_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1732,38 +1224,15 @@
         <crowd-radio-button name="Arousal_36_5" value="5">5) Somewhat excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_36_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_36_7" value="7">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _36">
-        <crowd-radio-button name=" _36_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _36_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _36_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _36_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _36_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _36_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _36_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+    </crowd-radio-group>    
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_37}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _37">
-        <crowd-radio-button name=" _37_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _37_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1788,37 +1257,15 @@
         <crowd-radio-button name="Arousal_37_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_37_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _37">
-        <crowd-radio-button name=" _37_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _37_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _37_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _37_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _37_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _37_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _37_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_38}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _38">
-        <crowd-radio-button name=" _38_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _38_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1844,36 +1291,14 @@
         <crowd-radio-button name="Arousal_38_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
     
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _38">
-        <crowd-radio-button name=" _38_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _38_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _38_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _38_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _38_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _38_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _38_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_39}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _39">
-        <crowd-radio-button name=" _39_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _39_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1898,37 +1323,15 @@
         <crowd-radio-button name="Arousal_39_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_39_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _39">
-        <crowd-radio-button name=" _39_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _39_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _39_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _39_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _39_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _39_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _39_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_40}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _40">
-        <crowd-radio-button name=" _40_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _40_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -1953,37 +1356,15 @@
         <crowd-radio-button name="Arousal_40_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_40_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _40">
-        <crowd-radio-button name=" _40_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _40_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _40_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _40_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _40_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _40_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _40_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+         
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_41}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _41">
-        <crowd-radio-button name=" _41_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _41_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2008,37 +1389,16 @@
         <crowd-radio-button name="Arousal_41_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_41_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _41">
-        <crowd-radio-button name=" _41_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _41_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _41_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _41_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _41_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _41_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _41_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_42}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _42">
-        <crowd-radio-button name=" _42_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _42_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
+
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2062,38 +1422,15 @@
         <crowd-radio-button name="Arousal_42_5" value="5">5) Somewhat excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_42_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_42_7" value="7">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _42">
-        <crowd-radio-button name=" _42_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _42_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _42_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _42_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _42_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _42_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _42_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+    </crowd-radio-group>    
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_43}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _43">
-        <crowd-radio-button name=" _43_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _43_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2118,37 +1455,15 @@
         <crowd-radio-button name="Arousal_43_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_43_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _43">
-        <crowd-radio-button name=" _43_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _43_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _43_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _43_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _43_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _43_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _43_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_44}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _44">
-        <crowd-radio-button name=" _44_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _44_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2173,37 +1488,15 @@
         <crowd-radio-button name="Arousal_44_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_44_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _44">
-        <crowd-radio-button name=" _44_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _44_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _44_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _44_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _44_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _44_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _44_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_45}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _45">
-        <crowd-radio-button name=" _45_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _45_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2228,37 +1521,15 @@
         <crowd-radio-button name="Arousal_45_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_45_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _45">
-        <crowd-radio-button name=" _45_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _45_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _45_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _45_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _45_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _45_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _45_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_46}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _46">
-        <crowd-radio-button name=" _46_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _46_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2283,37 +1554,15 @@
         <crowd-radio-button name="Arousal_46_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_46_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _46">
-        <crowd-radio-button name=" _46_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _46_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _46_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _46_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _46_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _46_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _46_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_47}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _47">
-        <crowd-radio-button name=" _47_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _47_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2338,37 +1587,15 @@
         <crowd-radio-button name="Arousal_47_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_47_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _47">
-        <crowd-radio-button name=" _47_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _47_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _47_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _47_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _47_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _47_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _47_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_48}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _48">
-        <crowd-radio-button name=" _48_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _48_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2393,37 +1620,15 @@
         <crowd-radio-button name="Arousal_48_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_48_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _48">
-        <crowd-radio-button name=" _48_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _48_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _48_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _48_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _48_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _48_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _48_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+         
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_49}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _49">
-        <crowd-radio-button name=" _49_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _49_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2448,37 +1653,15 @@
         <crowd-radio-button name="Arousal_49_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_49_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _49">
-        <crowd-radio-button name=" _49_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _49_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _49_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _49_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _49_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _49_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _49_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_50}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _50">
-        <crowd-radio-button name=" _50_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _50_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2503,37 +1686,15 @@
         <crowd-radio-button name="Arousal_50_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_50_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _50">
-        <crowd-radio-button name=" _50_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _50_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _50_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _50_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _50_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _50_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _50_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_51}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _51">
-        <crowd-radio-button name=" _51_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _51_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2558,37 +1719,15 @@
         <crowd-radio-button name="Arousal_51_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_51_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _51">
-        <crowd-radio-button name=" _51_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _51_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _51_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _51_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _51_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _51_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _51_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_52}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _52">
-        <crowd-radio-button name=" _52_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _52_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2613,37 +1752,15 @@
         <crowd-radio-button name="Arousal_52_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_52_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _52">
-        <crowd-radio-button name=" _52_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _52_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _52_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _52_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _52_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _52_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _52_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_53}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _53">
-        <crowd-radio-button name=" _53_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _53_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2668,37 +1785,15 @@
         <crowd-radio-button name="Arousal_53_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_53_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _53">
-        <crowd-radio-button name=" _53_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _53_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _53_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _53_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _53_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _53_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _53_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_54}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _54">
-        <crowd-radio-button name=" _54_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _54_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2723,37 +1818,15 @@
         <crowd-radio-button name="Arousal_54_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_54_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _54">
-        <crowd-radio-button name=" _54_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _54_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _54_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _54_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _54_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _54_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _54_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_55}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _55">
-        <crowd-radio-button name=" _55_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _55_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2777,38 +1850,15 @@
         <crowd-radio-button name="Arousal_55_5" value="5">5) Somewhat excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_55_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_55_7" value="7">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _55">
-        <crowd-radio-button name=" _55_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _55_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _55_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _55_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _55_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _55_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _55_7" value="7">7) Very  /usual</crowd-radio-button>
     </crowd-radio-group>     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_56}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _56">
-        <crowd-radio-button name=" _56_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _56_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2833,37 +1883,15 @@
         <crowd-radio-button name="Arousal_56_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_56_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _56">
-        <crowd-radio-button name=" _56_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _56_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _56_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _56_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _56_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _56_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _56_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+   
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_57}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _57">
-        <crowd-radio-button name=" _57_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _57_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2888,37 +1916,15 @@
         <crowd-radio-button name="Arousal_57_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_57_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _57">
-        <crowd-radio-button name=" _57_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _57_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _57_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _57_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _57_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _57_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _57_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_58}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _58">
-        <crowd-radio-button name=" _58_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _58_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2943,37 +1949,15 @@
         <crowd-radio-button name="Arousal_58_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_58_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _58">
-        <crowd-radio-button name=" _58_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _58_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _58_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _58_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _58_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _58_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _58_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+   
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_59}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _59">
-        <crowd-radio-button name=" _59_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _59_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -2998,37 +1982,15 @@
         <crowd-radio-button name="Arousal_59_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_59_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _59">
-        <crowd-radio-button name=" _59_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _59_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _59_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _59_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _59_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _59_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _59_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_60}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _60">
-        <crowd-radio-button name=" _60_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _60_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3053,37 +2015,14 @@
         <crowd-radio-button name="Arousal_60_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_60_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _60">
-        <crowd-radio-button name=" _60_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _60_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _60_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _60_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _60_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _60_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _60_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_61}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _61">
-        <crowd-radio-button name=" _61_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _61_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3108,37 +2047,15 @@
         <crowd-radio-button name="Arousal_61_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_61_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _61">
-        <crowd-radio-button name=" _61_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _61_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _61_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _61_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _61_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _61_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _61_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_62}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _62">
-        <crowd-radio-button name=" _62_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _62_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3163,37 +2080,16 @@
         <crowd-radio-button name="Arousal_62_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_62_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _62">
-        <crowd-radio-button name=" _62_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _62_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _62_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _62_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _62_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _62_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _62_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_63}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _63">
-        <crowd-radio-button name=" _63_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _63_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
+
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3217,38 +2113,15 @@
         <crowd-radio-button name="Arousal_63_5" value="5">5) Somewhat excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_63_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_63_7" value="7">7) Very excited/aroused</crowd-radio-button>
-    </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _63">
-        <crowd-radio-button name=" _63_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _63_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _63_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _63_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _63_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _63_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _63_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+    </crowd-radio-group>   
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_64}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _64">
-        <crowd-radio-button name=" _64_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _64_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3273,37 +2146,15 @@
         <crowd-radio-button name="Arousal_64_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_64_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _64">
-        <crowd-radio-button name=" _64_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _64_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _64_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _64_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _64_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _64_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _64_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_65}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _65">
-        <crowd-radio-button name=" _65_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _65_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3328,37 +2179,15 @@
         <crowd-radio-button name="Arousal_65_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_65_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _65">
-        <crowd-radio-button name=" _65_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _65_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _65_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _65_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _65_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _65_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _65_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_66}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _66">
-        <crowd-radio-button name=" _66_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _66_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3383,37 +2212,15 @@
         <crowd-radio-button name="Arousal_66_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_66_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _66">
-        <crowd-radio-button name=" _66_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _66_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _66_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _66_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _66_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _66_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _66_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+       
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_67}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _67">
-        <crowd-radio-button name=" _67_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _67_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3438,37 +2245,15 @@
         <crowd-radio-button name="Arousal_67_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_67_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _67">
-        <crowd-radio-button name=" _67_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _67_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _67_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _67_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _67_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _67_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _67_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+     
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_68}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _68">
-        <crowd-radio-button name=" _68_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _68_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3493,37 +2278,15 @@
         <crowd-radio-button name="Arousal_68_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_68_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _68">
-        <crowd-radio-button name=" _68_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _68_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _68_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _68_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _68_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _68_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _68_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_69}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _69">
-        <crowd-radio-button name=" _69_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _69_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3548,37 +2311,15 @@
         <crowd-radio-button name="Arousal_69_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_69_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _69">
-        <crowd-radio-button name=" _69_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _69_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _69_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _69_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _69_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _69_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _69_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_70}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _70">
-        <crowd-radio-button name=" _70_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _70_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3603,37 +2344,15 @@
         <crowd-radio-button name="Arousal_70_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_70_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _70">
-        <crowd-radio-button name=" _70_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _70_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _70_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _70_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _70_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _70_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _70_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+        
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_71}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _71">
-        <crowd-radio-button name=" _71_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _71_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3658,37 +2377,15 @@
         <crowd-radio-button name="Arousal_71_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_71_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _71">
-        <crowd-radio-button name=" _71_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _71_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _71_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _71_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _71_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _71_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _71_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+      
     </crowd-image-classifier>
 
 <br><br><br>        
-    </crowd-image-classifier>  
+ 
 
     <classification-target>
         <img  src="${image_url_72}">
     </classification-target>
-    <h2>Question</h2>
-    <p>How familiar are you with this type of item?</p>
-        <crowd-radio-group name=" _72">
-        <crowd-radio-button name=" _72_1" value="1">1) Not at all familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_2" value="2">2) Slightly familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_3" value="3">3) Somewhat familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_4" value="4">4) Moderately familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_5" value="5">5) Familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_6" value="6">6) Very familiar</crowd-radio-button>
-        <crowd-radio-button name=" _72_7" value="7">7) Extremely familiar</crowd-radio-button>
-    </crowd-radio-group>
     
     <h2>Question</h2>
     <p>How positive or negative do you find this item?</p>
@@ -3713,18 +2410,7 @@
         <crowd-radio-button name="Arousal_72_6" value="6">6) Excited/aroused</crowd-radio-button>
         <crowd-radio-button name="Arousal_72_7" value="7">7) Very excited/aroused</crowd-radio-button>
     </crowd-radio-group> 
-    
-    <h2>Question</h2>
-    <p>Amongst similar and related items, how   is this item?</p>
-        <crowd-radio-group name=" _72">
-        <crowd-radio-button name=" _72_1" value="1">1) Very a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _72_2" value="2">2) A /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _72_3" value="3">3) Somewhat a /unusual</crowd-radio-button>
-        <crowd-radio-button name=" _72_4" value="4">4) Neutral</crowd-radio-button>
-        <crowd-radio-button name=" _72_5" value="5">5) Somewhat  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _72_6" value="6">6)  /usual</crowd-radio-button>
-        <crowd-radio-button name=" _72_7" value="7">7) Very  /usual</crowd-radio-button>
-    </crowd-radio-group>     
+     
     </crowd-image-classifier>    
 
                                               
@@ -3741,14 +2427,15 @@
               Worker can open while working on the task. Including more detailed 
               instructions and additional examples of good and bad answers here can
               help get good results. You can include any HTML here. -->
-        <full-instructions header="Classification Instructions">
             <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
             <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
+            <p>You will need to provide an answer to each question and complete the consent form before you can submit, so please read everything carefully.</p>
         </full-instructions>
-        
 
 </crowd-form>
+
 <script type='text/javascript'>
+
 function validateForm() {
     var valid = true;
     var radioGroups = document.querySelectorAll("crowd-radio-group");
@@ -3763,12 +2450,50 @@ function validateForm() {
     return valid;
 }
 
+function validateConsent() {
+    var inputCode = document.getElementById("MTcode").value;
+    var valid_consent = false;
+    if (document.getElementById("MTcodeResult").value=='pass') {
+        valid_consent=true;
+    }
+    else{
+        valid_consent = false;
+    }
+    return valid_consent;
+}
+
+$('#consentButton').click(consentClicked);
+
 window.onload = function() {
+    $("#completion").hide();
+    $("#consentError").hide();
     document.querySelector('crowd-form').onsubmit = function(e) {
         if (!validateForm()) {
-            alert("Please answer all the questions in order to submit.");
+            alert("Please answer ALL the questions in order to submit. Make sure to check each question");
             e.preventDefault();
+        } else if (!validateConsent()){
+            alert("Please make sure that you entered the consent code properly and pressed submit. If your code works the consent window should go away");
+            e.preventDefault();
+        } else{
+            alert("You have completed this study. After reading the following debreifing info, please click the 'OK' button to submit your responses. This experimental data will be used to better understand how these images are percieved, so that they can be used in future experiments. If you'd like to hear more about the study, please do not hesitate to contact us at: zbretton@utexas.edu (Zachary Bretton). Thanks for your participation!")
         }
     }
 }
+
+function consentClicked(){
+    var inputCode = document.getElementById("MTcode").value;
+    if (inputCode == 'am1_tu7') {
+        document.getElementById("MTcodeResult").value = "pass"
+        $(".consentDIV").hide();
+        $("#consentError").hide();
+    }
+    else{
+        document.getElementById("MTcodeResult").value = "fail"
+        $("#consentError").show();
+    }
+}
+
+    // Set link in intro to direct to RedCap consent form
+document.getElementById("link").setAttribute("href", "https://redcap.prc.utexas.edu/redcap/surveys/?s=DXETC9Y4KJ");
+
 </script>
