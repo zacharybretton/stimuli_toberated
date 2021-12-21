@@ -21,7 +21,8 @@
         text-align: center;
         margin-right: auto;
         margin-left: auto;
-        font-size: 24pt;
+        font-size: 20pt;
+        margin: 1 auto;
     }
     #MTcodeResult{
         display:none;
@@ -3094,7 +3095,7 @@
         <full-instructions header="Instructions">
             <p>In this task you will see one image at a time and are asked to provide a rating for each of the questions.</p>
             <p>These questions are to help us better understand the content of each image and how that impacts you.</p>
-            <p>You will need to provide an answer to each question before you can submit, so please read everything carefully.</p>
+            <p>You will need to provide an answer to each question before you can submit, and complete the consent form, so please read everything carefully.</p>
         </full-instructions>
 </crowd-form>
 
@@ -3133,21 +3134,20 @@ window.onload = function() {
     $("#consentError").hide();
     document.querySelector('crowd-form').onsubmit = function(e) {
         if (!validateForm()) {
-            alert("Please answer all the questions in order to submit. Make sure to check each answer");
+            alert("Please answer ALL the questions in order to submit. Make sure to check each question");
             e.preventDefault();
         } else if (!validateConsent()){
             alert("Please make sure that you entered the consent code properly and pressed submit. If your code works the consent window should go away");
             e.preventDefault();
         } else{
-            alert("You have completed this study. After reading the following debreifing form, please click the 'okay' button to submit your responses. Researcher contact info - Zachary Bretton: zbretton@utexas.edu. If you'd like to hear more about the study, please do not hesitate to contact us at the email above. Thanks for your participation!")
+            alert("You have completed this study. After reading the following debreifing info, please click the 'OK' button to submit your responses. This experimental data will be used to better understand how these images are percieved, so that they can be used in future experiments. If you'd like to hear more about the study, please do not hesitate to contact us at: zbretton@utexas.edu (Zachary Bretton). Thanks for your participation!")
         }
-
     }
 }
 
 function consentClicked(){
     var inputCode = document.getElementById("MTcode").value;
-    if (inputCode == 'a7ui_i90') {
+    if (inputCode == 'am1_tu7') {
         document.getElementById("MTcodeResult").value = "pass"
         $(".consentDIV").hide();
         $("#consentError").hide();
@@ -3157,4 +3157,8 @@ function consentClicked(){
         $("#consentError").show();
     }
 }
+
+    // Set link in intro to direct to RedCap consent form
+document.getElementById("link").setAttribute("href", "https://redcap.prc.utexas.edu/redcap/surveys/?s=DXETC9Y4KJ");
+
 </script>
