@@ -6246,7 +6246,6 @@ function validateConsent() {
 $('#consentButton').click(consentClicked);
 
 window.onload = function() {
-    $("#completion").hide();
     $("#consentError").hide();
     document.querySelector('crowd-form').onsubmit = function(e) {
         if (!validateForm()) {
