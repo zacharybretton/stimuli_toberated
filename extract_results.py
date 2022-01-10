@@ -43,67 +43,69 @@ obj_batch_files=find('Batch*.csv',object_results_dir)
 
 for file in obj_batch_files:
     batch_df=pd.read_csv(file)
-    arousal_columns=[]
-    valence_columns=[]
-    typical_columns=[]
-    image_columns=[]
-    data_dict={}
-    for _c in batch_df.columns:
-        if 'Arousal' in _c:
-            arousal_columns.append(_c)
-        elif 'Valence' in _c:
-            valence_columns.append(_c)
-        elif 'Typical' in _c:
-            typical_columns.append(_c)
-        elif 'image' in _c:
-            image_columns.append(_c)
-    for image in image_columns:
 
-        image_dict={}
-        image_num=image.split(".")[-1].split("_")[-1] #this splits out the "." and the "_" allowing us to grab the last value which is the image #
-        image_name=batch_df[image].values[0].split("/")[-1] #this splits the image path so we can get just the name
-        image_dict['name']=image_name
+    for row in batch_df.index:
+        arousal_columns=[]
+        valence_columns=[]
+        typical_columns=[]
+        image_columns=[]
+        data_dict={}
+        for _c in batch_df.columns:
+            if 'Arousal' in _c:
+                arousal_columns.append(_c)
+            elif 'Valence' in _c:
+                valence_columns.append(_c)
+            elif 'Typical' in _c:
+                typical_columns.append(_c)
+            elif 'image' in _c:
+                image_columns.append(_c)
+        for image in image_columns:
 
-        temp_arousal=[]
-        temp_valence=[]
-        temp_typical=[]
+            image_dict={}
+            image_num=image.split(".")[-1].split("_")[-1] #this splits out the "." and the "_" allowing us to grab the last value which is the image #
+            image_name=batch_df.loc[row,image].split("/")[-1] #this splits the image path so we can get just the name
+            image_dict['name']=image_name
 
-        for temp_column in arousal_columns:
-            temp_num=temp_column.split(".")[-2].split("_")[-2]
+            temp_arousal=[]
+            temp_valence=[]
+            temp_typical=[]
 
-            if temp_num==image_num:
-                temp_arousal.append(temp_column)
-        a_answer=arousal_answers[batch_df[temp_arousal].values[0]][0]
-        image_dict['Arousal']=a_answer
+            for temp_column in arousal_columns:
+                temp_num=temp_column.split(".")[-2].split("_")[-2]
 
-        for temp_column in valence_columns:
-            temp_num=temp_column.split(".")[-2].split("_")[-2]
+                if temp_num==image_num:
+                    temp_arousal.append(temp_column)
+            a_answer=arousal_answers[batch_df.loc[row,temp_arousal].values.astype(bool)][0]
+            image_dict['Arousal']=a_answer
 
-            if temp_num==image_num:
-                temp_valence.append(temp_column)
-        v_answer=valence_answers[batch_df[temp_valence].values[0]][0]
-        image_dict['Valence']=v_answer
+            for temp_column in valence_columns:
+                temp_num=temp_column.split(".")[-2].split("_")[-2]
 
-        for temp_column in typical_columns:
-            temp_num=temp_column.split(".")[-2].split("_")[-2]
+                if temp_num==image_num:
+                    temp_valence.append(temp_column)
+            v_answer=valence_answers[batch_df.loc[row,temp_valence].values.astype(bool)][0]
+            image_dict['Valence']=v_answer
 
-            if temp_num==image_num:
-                temp_typical.append(temp_column)
+            for temp_column in typical_columns:
+                temp_num=temp_column.split(".")[-2].split("_")[-2]
 
-        t_answer=typical_answers[batch_df[temp_valence].values[0]][0]
-        image_dict['Typicality']=t_answer
+                if temp_num==image_num:
+                    temp_typical.append(temp_column)
 
-        data_dict[image_num]=image_dict
+            t_answer=typical_answers[batch_df.loc[row,temp_valence].values.astype(bool)][0]
+            image_dict['Typicality']=t_answer
 
-        del image_dict
+            data_dict[image_num]=image_dict
 
-    worker_id=batch_df['WorkerId'][0]
+            del image_dict
 
-    temp_df=pd.DataFrame(data=data_dict)
+        worker_id=batch_df.loc[row,'WorkerId']
 
-    temp_df.to_csv(os.path.join(object_export_dir,(worker_id+'.csv')))
+        temp_df=pd.DataFrame(data=data_dict)
 
-    del temp_df
+        temp_df.to_csv(os.path.join(object_export_dir,(worker_id+'.csv')))
+
+        del temp_df
 
 ###################################################
 # Face results
@@ -113,52 +115,54 @@ face_batch_files=find('Batch*.csv',face_results_dir)
 
 for file in face_batch_files:
     batch_df=pd.read_csv(file)
-    arousal_columns=[]
-    valence_columns=[]
-    image_columns=[]
-    data_dict={}
-    for _c in batch_df.columns:
-        if 'Arousal' in _c:
-            arousal_columns.append(_c)
-        elif 'Valence' in _c:
-            valence_columns.append(_c)
-        elif 'image' in _c:
-            image_columns.append(_c)
-    for image in image_columns:
 
-        image_dict={}
-        image_num=image.split(".")[-1].split("_")[-1] #this splits out the "." and the "_" allowing us to grab the last value which is the image #
-        image_name=batch_df[image].values[0].split("/")[-1] #this splits the image path so we can get just the name
-        image_dict['name']=image_name
+    for row in batch_df.index:
+        arousal_columns=[]
+        valence_columns=[]
+        image_columns=[]
+        data_dict={}
+        for _c in batch_df.columns:
+            if 'Arousal' in _c:
+                arousal_columns.append(_c)
+            elif 'Valence' in _c:
+                valence_columns.append(_c)
+            elif 'image' in _c:
+                image_columns.append(_c)
+        for image in image_columns:
 
-        temp_arousal=[]
-        temp_valence=[]
-        temp_typical=[]
+            image_dict={}
+            image_num=image.split(".")[-1].split("_")[-1] #this splits out the "." and the "_" allowing us to grab the last value which is the image #
+            image_name=batch_df.loc[row,image].split("/")[-1] #this splits the image path so we can get just the name
+            image_dict['name']=image_name
 
-        for temp_column in arousal_columns:
-            temp_num=temp_column.split(".")[-2].split("_")[-2]
+            temp_arousal=[]
+            temp_valence=[]
+            temp_typical=[]
 
-            if temp_num==image_num:
-                temp_arousal.append(temp_column)
-        a_answer=arousal_answers[batch_df[temp_arousal].values[0]][0]
-        image_dict['Arousal']=a_answer
+            for temp_column in arousal_columns:
+                temp_num=temp_column.split(".")[-2].split("_")[-2]
 
-        for temp_column in valence_columns:
-            temp_num=temp_column.split(".")[-2].split("_")[-2]
+                if temp_num==image_num:
+                    temp_arousal.append(temp_column)
+            a_answer=arousal_answers[batch_df.loc[row,temp_arousal].values.astype(bool)][0]
+            image_dict['Arousal']=a_answer
 
-            if temp_num==image_num:
-                temp_valence.append(temp_column)
-        v_answer=valence_answers[batch_df[temp_valence].values[0]][0]
-        image_dict['Valence']=v_answer
+            for temp_column in valence_columns:
+                temp_num=temp_column.split(".")[-2].split("_")[-2]
 
-        data_dict[image_num]=image_dict
+                if temp_num==image_num:
+                    temp_valence.append(temp_column)
+            v_answer=valence_answers[batch_df.loc[row,temp_valence].values.astype(bool)][0]
+            image_dict['Valence']=v_answer
 
-        del image_dict
+            data_dict[image_num]=image_dict
 
-    worker_id=batch_df['WorkerId'][0]
+            del image_dict
 
-    temp_df=pd.DataFrame(data=data_dict)
+        worker_id=batch_df.loc[row,'WorkerId']
 
-    temp_df.to_csv(os.path.join(face_export_dir,(worker_id+'.csv')))
+        temp_df=pd.DataFrame(data=data_dict)
 
-    del temp_df
+        temp_df.to_csv(os.path.join(face_export_dir,(worker_id+'.csv')))
+
+        del temp_df

@@ -13237,6 +13237,10 @@
 
 </crowd-form>
 
+
+<!-- ("You have completed this study. After reading the following debreifing info, please click the 'OK' button to submit your responses. This experimental data will be used to better understand how these images are percieved, so that they can be used in future experiments. If you'd like to hear more about the study, please do not hesitate to contact us at: zbretton@utexas.edu (Zachary Bretton). Thanks for your participation!") -->
+        
+
 <script type='text/javascript'>
 
 function validateForm() {
@@ -13276,9 +13280,7 @@ window.onload = function() {
         } else if (!validateConsent()){
             alert("Please make sure that you entered the consent code properly and pressed submit. If your code works the consent window should go away");
             e.preventDefault();
-        } else{
-            alert("You have completed this study. After reading the following debreifing info, please click the 'OK' button to submit your responses. This experimental data will be used to better understand how these images are percieved, so that they can be used in future experiments. If you'd like to hear more about the study, please do not hesitate to contact us at: zbretton@utexas.edu (Zachary Bretton). Thanks for your participation!")
-        }
+        } 
     }
 }
 
