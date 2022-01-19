@@ -15,6 +15,7 @@ import os
 import fnmatch
 import pandas as pd
 import pickle
+from os import path
 
 
 
@@ -37,6 +38,17 @@ def find(pattern, path): #find the pattern we're looking for
             if fnmatch.fnmatch(name, pattern):
                 result.append(os.path.join(root, name))
         return result
+
+def check_file(filePath):
+    if path.exists(filePath):
+        numb = 1
+        while True:
+            newPath = "{0}_{2}{1}".format(*path.splitext(filePath) + (numb,))
+            if path.exists(newPath):
+                numb += 1
+            else:
+                return newPath
+    return filePath
 
 #find the batch csv's so that we can load in the information
 obj_batch_files=find('Batch*.csv',object_results_dir)
@@ -103,9 +115,11 @@ for file in obj_batch_files:
 
         temp_df=pd.DataFrame(data=data_dict)
 
-        temp_df.to_csv(os.path.join(object_export_dir,(worker_id+'.csv')))
+        temp_file=os.path.join(object_export_dir,(worker_id+'.csv'))
 
-        del temp_df
+        temp_df.to_csv(check_file(temp_file))
+
+        del temp_df, temp_file
 
 ###################################################
 # Face results
@@ -163,6 +177,8 @@ for file in face_batch_files:
 
         temp_df=pd.DataFrame(data=data_dict)
 
-        temp_df.to_csv(os.path.join(face_export_dir,(worker_id+'.csv')))
+        temp_file=os.path.join(face_export_dir,(worker_id+'.csv'))
 
-        del temp_df
+        temp_df.to_csv(check_file(temp_file))
+
+        del temp_df, temp_file
